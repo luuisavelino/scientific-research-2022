@@ -1,17 +1,17 @@
-version: '3.9'
+version: '3.3'
 
 services:                        
     influxdb:
         restart: always
         image: influxdb:1.8.3
         container_name: influxdb
-        command: sh -c ./config/init.sh
         ports:
             - "8083:8083"
         networks:
             - production-network
         volumes:
             - influxdb-storage:/var/lib/influxdb
+            - ./config/influxdb-init.iql:/docker-entrypoint-initdb.d
 
     telegraf:
         restart: always
@@ -51,7 +51,7 @@ services:
             - production-network
         volumes:
             - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-                    
+
 volumes:
     influxdb-storage:
     grafana-storage:
