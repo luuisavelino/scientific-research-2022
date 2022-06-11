@@ -7,9 +7,9 @@
 
 /***************************** Broker MQTT ***********************************/
 
-#define SERVER_IP      "192.168.1.122"
+#define SERVER_IP       "192.168.1.122"
 #define SERVER_PORT     1883
-#define IDENTIFY_NAME   "TestClient"
+#define IDENTIFY_NAME   "Subscriber"
 
 /*************************** Network Config **********************************/
 
@@ -23,8 +23,8 @@ EspMQTTClient client(
 
 /*************************** Variables **********************************/
 
-const int analogInPin = A0;  // ESP8266 Analog Pin ADC0 = A0
-char sensorValue[20];  // value read from the pot
+const int ledPin = 2;
+int dutyCycle = 0;
 
 /*************************** Code **********************************/
 
@@ -44,9 +44,12 @@ void onConnectionEstablished()
 
 void loop()
 {
-  itoa(analogRead(analogInPin), sensorValue, 10);
-
   client.loop();
-  client.publish("sensor", sensorValue, true);
-  delay(0.01 * 1000);
+
+  client.subscribe("sensor", [](const String & payload) {
+    dutyCycle = atoi(payload.c_str()) / 4;
+    analogWrite(ledPin, dutyCycle);
+  });
+
+  delay(0.1 * 1000);
 }
