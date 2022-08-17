@@ -3,7 +3,7 @@ version: '3.3'
 services:                        
     influxdb:
         restart: always
-        image: influxdb:1.8.3
+        image: luisavelino/iot-influxdb:1.0
         container_name: influxdb
         ports:
             - "8083:8083"
