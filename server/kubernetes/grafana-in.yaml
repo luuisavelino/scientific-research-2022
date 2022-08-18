@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   name: grafana-in
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: iot-utfpr.ddns.com
+  - host: iot-utfpr.ddns.net
     http:
       paths:
-      - pathType: "Prefix"
-        path: "/"
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: grafana-svc
