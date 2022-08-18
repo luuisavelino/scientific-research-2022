@@ -7,7 +7,7 @@
 
 /***************************** Broker MQTT ***********************************/
 
-#define SERVER_IP      "192.168.1.122"
+#define SERVER_IP       "34.172.56.210"
 #define SERVER_PORT     1883
 #define IDENTIFY_NAME   "Publisher"
 
