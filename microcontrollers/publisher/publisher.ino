@@ -2,8 +2,8 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "PRISMA"
-#define WLAN_PASS       "12082000"
+#define WLAN_SSID       "Galaxy"
+#define WLAN_PASS       "luar44985"
 
 /***************************** Broker MQTT ***********************************/
 
@@ -45,8 +45,10 @@ void onConnectionEstablished()
 void loop()
 {
   itoa(analogRead(analogInPin), sensorValue, 10);
-  client.publish("sensor", sensorValue, true);
-  delay(0.01 * 1000);
+  client.publish("sensor/tensao", sensorValue, true);
+  
+  Serial.println(sensorValue);
+  delay(0.250 * 1000);
 
   client.loop();
 }
