@@ -15,20 +15,6 @@ spec:
           image: luisavelino/iot-grafana:1.0
           ports:
             - containerPort: 3000
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            periodSeconds: 10
-            failureThreshold: 3
-            initialDelaySeconds: 20
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            periodSeconds: 10
-            failureThreshold: 5
-            initialDelaySeconds: 3
           volumeMounts:
             - name: grafana-storage
               mountPath: /var/lib/grafana
