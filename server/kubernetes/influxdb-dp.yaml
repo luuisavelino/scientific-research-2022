@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-dp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: influxdb
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - name: influxdb-container
+          image: luisavelino/iot-influxdb:1.0
+          ports:
+            - containerPort: 8086
+          volumeMounts:
+            - name: influxdb-storage
+              mountPath: /var/lib/influxdb
+      volumes:
+        - name: influxdb-storage
+          persistentVolumeClaim:
+            claimName: influxdb-storage-pvc
+  selector:
+    matchLabels:
+      app: influxdb
+  

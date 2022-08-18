@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto-dp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: mosquitto
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+        - name: mosquitto-container
+          image: luisavelino/iot-mosquitto:1.0
+          ports:
+            - containerPort: 1883
+  selector:
+    matchLabels:
+      app: mosquitto

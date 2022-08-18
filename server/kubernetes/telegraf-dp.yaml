@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegraf-dp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: telegraf
+      labels:
+        app: telegraf
+    spec:
+      containers:
+        - name: telegraf-container
+          image: luisavelino/iot-telegraf:k8s
+          ports:
+            - containerPort: 5505
+  selector:
+    matchLabels:
+      app: telegraf
