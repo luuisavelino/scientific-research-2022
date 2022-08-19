@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: mosquitto-svc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 1883
   selector:

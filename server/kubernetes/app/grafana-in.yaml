@@ -16,13 +16,3 @@ spec:
             name: grafana-svc
             port:
               number: 3000
-  - host: mqtt.iot-utfpr.ddns.net
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: mosquitto-svc
-            port:
-              number: 1883              
