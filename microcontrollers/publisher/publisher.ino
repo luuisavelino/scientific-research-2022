@@ -2,12 +2,12 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "Galaxy"
-#define WLAN_PASS       "luar44985"
+#define WLAN_SSID       "Wireless"
+#define WLAN_PASS       "iot-research"
 
 /***************************** Broker MQTT ***********************************/
 
-#define SERVER_IP       "34.172.56.210"
+#define SERVER_IP       "34.171.228.78"
 #define SERVER_PORT     1883
 #define IDENTIFY_NAME   "Publisher"
 
