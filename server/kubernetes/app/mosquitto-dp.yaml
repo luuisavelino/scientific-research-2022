@@ -12,12 +12,12 @@ spec:
     spec:
       containers:
         - name: mosquitto-container
-          image: luisavelino/iot-mosquitto:1.0
+          image: luisavelino/iot-mosquitto:sem-autenticacao
           ports:
             - containerPort: 1883
-          envFrom:
-            - secretRef:
-                name: mosquitto-secret
+          #envFrom:
+          #  - secretRef:
+          #      name: mosquitto-secret
   selector:
     matchLabels:
       app: mosquitto
