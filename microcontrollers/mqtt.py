@@ -6,9 +6,9 @@ import time
 from paho.mqtt import client as mqtt_client
 
 
-broker = '34.171.228.78'
+broker = '34.95.228.170'
 port = 1883
-topic = "python/contador"
+topic = "python/conexao"
 # generate client ID with pub prefix randomly
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 # username = ''
@@ -44,7 +44,7 @@ def publish(client):
             print(f"Failed to send message to topic {topic}")
         
         msg_count += 1
-        # time.sleep(0.0001)
+        time.sleep(1)
 
 
 def run():
