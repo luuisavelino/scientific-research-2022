@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: telegraf-container
-          image: luisavelino/iot-telegraf:k8s
+          image: luisavelino/iot-telegraf:k8s-1.0
           ports:
             - containerPort: 5505
   selector:
